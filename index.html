@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente IA Simples</title>
+<style>
+  :root {
+    --fundo: #f6f7f4;
+    --texto: #1c2321;
+    --suave: #5a6662;
+    --destaque: #0b6e4f;
+    --bloco: #e6ebe7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #141a18;
+      --texto: #e8ede9;
+      --suave: #9aa8a2;
+      --destaque: #5fd3a6;
+      --bloco: #1f2927;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.65;
+  }
+  main { max-width: 38rem; margin: 0 auto; padding: 4rem 1.25rem; }
+  h1 { font-size: clamp(2rem, 7vw, 3rem); line-height: 1.1; margin: 0 0 1rem; }
+  h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; }
+  p, li { color: var(--suave); }
+  .terminal {
+    background: var(--bloco);
+    border-left: 4px solid var(--destaque);
+    padding: 1rem 1.25rem;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: .95rem;
+    overflow-x: auto;
+    color: var(--texto);
+  }
+  .terminal p { margin: .2rem 0; color: inherit; }
+  a { color: var(--destaque); }
+  a:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Um agente de IA que roda no seu computador</h1>
+  <p>Você conversa no terminal, e o agente decide sozinho quando usar uma ferramenta: ver a hora, anotar tarefas ou listar arquivos do projeto. Tudo roda local, com o Ollama.</p>
+
+  <div class="terminal" role="img" aria-label="Exemplo de conversa com o agente">
+    <p>Você: anota que preciso estudar banco de dados</p>
+    <p>Agente: Pronto, anotei como tarefa 1.</p>
+    <p>Você: o que falta fazer?</p>
+    <p>Agente: 1. [ ] estudar banco de dados</p>
+  </div>
+
+  <h2>Ferramentas</h2>
+  <ul>
+    <li>hora_atual: informa a data e a hora</li>
+    <li>anotar_tarefa, listar_tarefas e concluir_tarefa: uma lista de tarefas salva em arquivo</li>
+    <li>listar_pasta: lista arquivos, sem sair da pasta do projeto</li>
+  </ul>
+
+  <h2>Como usar</h2>
+  <p>Instale o Ollama, baixe o modelo qwen2.5:3b, rode <code>pip install -r requirements.txt</code> e depois <code>python agente.py</code>. Os detalhes estão no README do repositório.</p>
+</main>
+</body>
+</html>
